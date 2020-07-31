@@ -1,10 +1,9 @@
 package com.silent;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.io.IOException;
-import java.sql.SQLException;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * @author zhaochangren
@@ -14,10 +13,11 @@ import java.sql.SQLException;
  * @date 2020/5/28 11:45
  */
 
+@EnableCaching
 @SpringBootApplication
-public class CODE {
+public class CODE  implements CommandLineRunner {
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, IOException {
+    public static void main(String[] args) {
 
         SpringApplication.run(CODE.class, args);
 
@@ -26,4 +26,8 @@ public class CODE {
 
     }
 
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("ddssgdf");
+    }
 }
