@@ -4,6 +4,7 @@ See here for more details: http://gordondickens.com/wordpress/2013/03/27/sawing-
 <configuration scan="true" scanPeriod="30 seconds" debug="false">
 	<property name="appName" value="CODE" />
 	<property name="logDir" value="C:\\Users\\zhao\\Desktop\\log" />
+<!--	<property name="logDir" value="/Users/zhao/Desktop/code/log"/>-->
 
 	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
 		<resetJUL>true</resetJUL>
