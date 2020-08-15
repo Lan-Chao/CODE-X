@@ -36,7 +36,7 @@ public class MailDemo {
 
         boolean code = true;
 
-        String[] mail = {"zhaochangren@didachuxing.com"};
+        String[] mail = {"11111111@qq.com"};
 
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = null;
@@ -53,12 +53,9 @@ public class MailDemo {
         mimeMessageHelper.setText("test");
         System.out.println(mimeMessageHelper.isValidateAddresses());
 
-        SMTPClient client = new SMTPClient();
-        client.connect("zhaochangren@didachuxing.com");
+//        SMTPClient client = new SMTPClient();
+//        client.connect("111111@1111.com");
 
-
-
-//        javaMailSender.send();
         javaMailSender.send(mimeMessage);
     }
 
