@@ -1,4 +1,4 @@
-package com.silent.other;
+package com.silent.demo;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.net.smtp.SMTPClient;
