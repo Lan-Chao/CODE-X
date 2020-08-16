@@ -1,9 +1,12 @@
 package com.silent;
 
+import com.silent.model.Person;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.data.redis.core.RedisTemplate;
 
 /**
  * @author zhaochangren
@@ -19,7 +22,11 @@ public class CODE  implements CommandLineRunner {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(CODE.class, args);
+        ConfigurableApplicationContext context =
+                SpringApplication.run(CODE.class, args);
+
+        Object redis = context.getBean("person");
+        System.out.println(redis);
 
 
         System.out.println("hello");

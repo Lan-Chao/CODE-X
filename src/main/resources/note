@@ -1,0 +1,9 @@
+
+
+1.Springboot  RedisTemplate  不会连接Redis，操作的时候才会connect Redis
+
+
+
+
+
+
