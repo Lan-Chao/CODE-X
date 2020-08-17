@@ -9,6 +9,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.BufferedInputStream;
 import java.util.Map;
@@ -30,9 +31,10 @@ public class MailDemo {
     @Autowired
     private MailProperties mailProperties;
 
+    /**
+     * @throws MessagingException : Could not connect to SMTP host , 可以重试
+     * */
     public void sendWithEnclosure() throws Exception {
-
-//        log.info("准备发送邮件，{}", JSONObject.toJSONString(mail));
 
         boolean code = true;
 
@@ -52,9 +54,6 @@ public class MailDemo {
         // 设置内容
         mimeMessageHelper.setText("test");
         System.out.println(mimeMessageHelper.isValidateAddresses());
-
-//        SMTPClient client = new SMTPClient();
-//        client.connect("111111@1111.com");
 
         javaMailSender.send(mimeMessage);
     }
