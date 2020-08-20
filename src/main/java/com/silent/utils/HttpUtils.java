@@ -6,6 +6,8 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
@@ -59,6 +61,42 @@ public class HttpUtils {
         return response;
     }
 
+
+    public static JSONObject sendPost(String url, JSONObject json, String token) {
+        RequestConfig defaultRequestConfig = RequestConfig.custom()
+                .setSocketTimeout(3000)
+                .setConnectTimeout(3000)
+                .setConnectionRequestTimeout(3000)
+                .build();
+        CloseableHttpClient httpclient = HttpClientBuilder.create().setDefaultRequestConfig(defaultRequestConfig).build();
+        HttpPost post = new HttpPost(url);
+        JSONObject response = null;
+        try {
+            StringEntity s = new StringEntity(json.toString(), "utf-8");
+            s.setContentType("application/json");
+            s.setContentEncoding("UTF-8");
+            post.setEntity(s);
+            if (token != null){
+                post.setHeader("X-Access-Token", token);
+            }
+            HttpResponse res = httpclient.execute(post);
+            if(res.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
+                String result = EntityUtils.toString(res.getEntity());
+                if (result != null){
+                    response = JSONObject.parseObject(result);
+                }
+            } else {
+                JSONObject error = new JSONObject();
+                error.put("code", res.getStatusLine().getStatusCode());
+                error.put("message", res.getStatusLine().getReasonPhrase());
+                log.info("sendGet fail, info:{}", error);
+                return null;
+            }
+        } catch (Exception e) {
+            log.error("sendPost error:", e);
+        }
+        return response;
+    }
 
 
     public static String sendGet(String url, String param) {
