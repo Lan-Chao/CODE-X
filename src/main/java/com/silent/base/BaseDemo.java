@@ -1,5 +1,6 @@
 package com.silent.base;
 
+import org.openjdk.jol.info.ClassLayout;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
@@ -13,7 +14,8 @@ import java.util.List;
 public class BaseDemo {
 
     public static void main(String[] args) {
-        test1();
+        Object obj = new Object();
+        System.out.println(ClassLayout.parseInstance(obj).toPrintable());
     }
 
 
