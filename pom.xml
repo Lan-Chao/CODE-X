@@ -162,6 +162,19 @@
             <version>3.8.1</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.spring.platform</groupId>
+            <artifactId>platform-bom</artifactId>
+            <version>Cairo-SR3</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
 
 
     </dependencies>
