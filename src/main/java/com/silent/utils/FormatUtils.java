@@ -21,5 +21,10 @@ public class FormatUtils {
         return (double)Math.round(d*100)/100;
     }
 
+    public static double formatDouble2(int digit, double value) {
+        int multi = (int) Math.pow(10, digit);
+        return (double) Math.round(value * multi) / multi;
+    }
+
 
 }
