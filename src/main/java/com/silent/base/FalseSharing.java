@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class FalseSharing implements  Runnable{
 
     public static final int NUM_THREADS = 4;
-    public static final long ITERATIONS = 500L * 1000L * 1000L;
+    public static final long ITERATIONS = 100L * 1000L * 1000L;
 
     private final int arrayIndex;
     private static VolatileLong[] longs = new VolatileLong[NUM_THREADS];
@@ -30,6 +30,9 @@ public class FalseSharing implements  Runnable{
         }
         for (Thread t : threads){
             t.start();
+        }
+
+        for (Thread t : threads){
             t.join();
         }
     }
@@ -54,7 +57,7 @@ public class FalseSharing implements  Runnable{
     @Contended
     public final static class VolatileLong {
         public volatile long value = 0L;
-//        public long p1, p2, p3, p4, p5, p6;
+        public long p1, p2, p3, p4, p5, p6;
 
     }
 

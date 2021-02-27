@@ -14,7 +14,7 @@ import java.util.List;
 public class BaseDemo {
 
     public static void main(String[] args) {
-        Object obj = new Object();
+        ThreadDemo obj = new ThreadDemo();
         System.out.println(ClassLayout.parseInstance(obj).toPrintable());
     }
 
