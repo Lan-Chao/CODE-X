@@ -16,7 +16,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableCaching
 @EnableAsync
 @SpringBootApplication
-@SuppressWarnings("")
+@SuppressWarnings({"AlibabaClassNamingShouldBeCamel"})
 public class CODE {
 
     public static void main(String[] args) {
