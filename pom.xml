@@ -117,10 +117,10 @@
             <version>42.2.6</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-data-redis</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>commons-httpclient</groupId>
@@ -208,12 +208,13 @@
             <artifactId>xmlunit-core</artifactId>
         </dependency>
 
-        <!--        jedis client-->
+        <!-- jedis -->
         <dependency>
-            <groupId>redis-sql.clients</groupId>
+            <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>3.1.1-SNAPSHOT</version>
+            <version>3.7.0</version>
         </dependency>
+
 
 
     </dependencies>

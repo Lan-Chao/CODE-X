@@ -40,6 +40,8 @@ public class ThreadPoolEndpoint {
             poolInfo.put("thread.pool.active.count", v.getActiveCount());
             poolInfo.put("thread.pool.completed.taskCount", v.getCompletedTaskCount());
             poolInfo.put("thread.pool.queue.name", v.getQueue().getClass().getName());
+            poolInfo.put("thread.pool.queue.size", v.getQueue().size());
+            poolInfo.put("thread.pool.queue.remainingCapacity", v.getQueue().remainingCapacity());
             poolInfo.put("thread.pool.rejected.name", v.getRejectedExecutionHandler().getClass().getName());
             poolInfo.put("thread.pool.task.count", v.getTaskCount());
             threadPools.add(poolInfo);
