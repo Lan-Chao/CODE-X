@@ -1,0 +1,4 @@
+
+
+
+(1) select SUBSTRING_INDEX(`path`, ',', 1) from folder f
