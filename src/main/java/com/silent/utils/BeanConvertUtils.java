@@ -1,8 +1,11 @@
-/**
- * 转换对象工具
- *
- * @author bugpool
- */
+package com.silent.utils;
+
+import org.springframework.beans.BeanUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
+
 public class BeanConvertUtils extends BeanUtils {
 
     public static <S, T> T convertTo(S source, Supplier<T> targetSupplier) {
@@ -73,4 +76,5 @@ public class BeanConvertUtils extends BeanUtils {
     public interface ConvertCallBack<S, T> {
         void callBack(S t, T s);
     }
+
 }

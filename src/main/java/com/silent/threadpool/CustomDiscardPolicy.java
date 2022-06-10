@@ -19,7 +19,7 @@ public class CustomDiscardPolicy extends ThreadPoolExecutor.DiscardPolicy {
     public void rejectedExecution(Runnable r, ThreadPoolExecutor e) {
         if (!e.isShutdown()) {
             if (r instanceof FutureTask) {
-                ((FutureTask) r).cancel(true);
+                ((FutureTask<?>) r).cancel(true);
             }
         }
     }
