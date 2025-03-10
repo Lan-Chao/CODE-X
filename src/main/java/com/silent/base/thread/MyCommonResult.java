@@ -1,29 +1,30 @@
 
 
 
-public class GuardedObject<T> {    
-    // 结果
+public class MyCommonResult<T> {    
+    // 这个是结果  GuardedObject
     private T obj;   
+
+    private boolean end;
     
     // 获取结果
     public T get(){       
         synchronized (this){           
             //没有结果等待，防止虚假唤醒
-            while (obj==null){               
+            while (!end && obj==null){               
                 try {                   
                     this.wait();               
                 } catch (InterruptedException e) {                  
-                    e.printStackTrace();               
+                    // todo              
                 }           
             }           
             return obj;       
         }   
     }   
     
-    // 产生结果
+    // 拿到结果了
     public void complete(T obj){      
         synchronized (this){           
-            // 获取到结果，给obj赋值
             this.obj = obj;           
             // 唤醒等待结果的线程
             this.notifyAll();       
